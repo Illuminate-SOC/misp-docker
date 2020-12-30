@@ -42,7 +42,7 @@ RUN apt-get install -y python3-dev python3-pip python3-setuptools \
 WORKDIR /var/www
 RUN chown www-data:www-data /var/www
 USER www-data
-RUN git clone https://github.com/illuminate-gardepe/MISP/MISP.git
+RUN git clone https://github.com/illuminate-gardepe/MISP.git
 WORKDIR /var/www/MISP
 RUN git checkout tags/$(git describe --tags `git rev-list --tags --max-count=1`) && \
     git config core.filemode false && \
