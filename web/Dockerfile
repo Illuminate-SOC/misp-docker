@@ -44,8 +44,7 @@ RUN chown www-data:www-data /var/www
 USER www-data
 RUN git clone https://github.com/illuminate-gardepe/MISP.git
 WORKDIR /var/www/MISP
-RUN git checkout tags/$(git describe --tags `git rev-list --tags --max-count=1`) && \
-    git config core.filemode false && \
+RUN git config core.filemode false && \
     git submodule update --init --recursive && \
     git submodule foreach --recursive git config core.filemode false
 
